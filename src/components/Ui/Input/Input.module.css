@@ -1,0 +1,30 @@
+
+.Input{
+    color: ivory;
+    width: 80%;
+    padding: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid ivory;
+    border-radius: 3%;
+}
+.Input::placeholder{
+    color: ivory;
+}
+.Input:focus{
+    outline: none;
+    transition: ease-in-out, width .35s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+

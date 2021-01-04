@@ -1,0 +1,40 @@
+.active{
+    color: #ff9b34;
+    transition: color 0.2s ease-in-out !important;
+    transition-property: color !important;
+    transition-duration: 0.2s !important;
+    transition-timing-function: ease-in-out !important;
+    transition-delay: 0s !important;
+}
+.active:hover{
+    color: #ff9b34;
+
+}
+
+a{
+    font-size: 18px;
+    margin-top:20px; 
+    margin-left: 21px;
+    display: block;
+    height: 10px;
+    color: white;
+    transition: color 0.2s ease-in-out !important;
+    transition-property: color !important;
+    transition-duration: 0.2s !important;
+    transition-timing-function: ease-in-out !important;
+    transition-delay: 0s !important;
+
+}
+a:hover{
+    margin-top:20px; 
+    margin-left: 21px;
+    display: block;
+    height: 10px;
+    color: #007b8a;
+    transition: color 0.2s ease-in-out !important;
+    transition-property: color !important;
+    transition-duration: 0.2s !important;
+    transition-timing-function: ease-in-out !important;
+    transition-delay: 0s !important;
+
+}

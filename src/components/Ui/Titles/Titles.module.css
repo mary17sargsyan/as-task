@@ -1,0 +1,80 @@
+.TitleTextCenter{
+    text-align: center;
+    color: #333434;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 550;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+  
+}
+/*
+.textChart{
+    text-align: center;
+    color: #373737;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight:450;
+    font-family: 'Roboto', sans-serif;
+}
+.textChartSubtitle{
+    text-align: center;
+    color: #373737;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight:450;
+    font-family: 'Roboto', sans-serif;
+}
+.TextAlignCenter{
+    display: block;
+    margin-block-end: 1em;
+    margin-inline-end: 0px;
+    text-align: justify;
+    flex-direction:row;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    line-height: 23px;
+    font-weight: 300;
+    margin: 6px 0 6px 0 !important;
+}
+.TextAlignCenter a{
+    color: #2d6a4f;
+}
+.TextAlignCenter span{
+   line-height: 23px;
+}
+
+.SubtitleAlignLeft{
+
+    margin: 12px 0 5px 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+
+}
+
+@media screen and (max-width: 700px) {
+    .TitleTextCenter{
+        margin-bottom: 20px;    
+    }
+
+
+    .TextAlignCenter{
+        flex-direction:row;
+        display: block;
+        font-size: 12px !important;
+        line-height: 14px;
+        font-weight: 300;
+        margin: 6px 0 6px 0 !important;
+    }
+
+
+
+
+    .TextAlignCenter span{
+       line-height: 23px;
+    }
+
+}
+*/

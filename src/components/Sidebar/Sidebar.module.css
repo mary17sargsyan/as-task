@@ -1,0 +1,112 @@
+
+.Sidebar{
+    align-items: center;
+    position: fixed;
+    display: block;
+    max-width: 200px;
+    min-width: 200px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    padding-top: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+    background-color: #083643;
+}
+.SearchForm{
+    margin-top: 30px;
+}
+/*
+.SideDrawerClose{
+    position: fixed;
+    display: block;
+    max-width:50px;
+    min-width: 50px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+    background-color: #083643;
+}
+
+.Open{
+    -webkit-transition: 0.2s ease-in-out;
+}
+.Close{
+
+    -webkit-transition: 0.2s ease-in-out;
+}
+.Logo{
+    height: 10px;
+    margin-bottom: 30px;
+}
+ /*
+@media (max-width: 600px) {
+   .SideDrawer{
+        position: fixed;
+        display: block;
+        max-width: 130px;
+        min-width: 130px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        box-sizing: border-box;
+        transition: transform 0.2s ease-out;
+        background-color: #083643;
+    }
+    .SideDrawerClose{
+        position: fixed;
+        display: block;
+        max-width: 40px;
+        min-width: 40px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        box-sizing: border-box;
+        transition: transform 0.2s ease-out;
+        background-color: #083643;
+    }
+
+    .icon{
+        font-size: 25px !important;
+        margin-left: 73% !important;
+
+    }
+    .iconClose{
+        font-size: 25px !important;
+        margin-left: 20% !important;
+    }
+
+}
+
+@media (max-width: 900px)  {
+    .icon{
+        font-size: 25px !important;
+
+
+    }
+    .iconClose{
+        font-size: 25px !important;
+        margin-left: 37% !important;
+
+    }
+}
+
+.icon{
+    color: white;
+    font-size: 33px;
+    margin-left: 80%;
+    margin-right: 15%;
+}
+.iconClose{
+    color: white;
+    font-size: 35px;
+    margin-left: 40%;
+    margin-right: 15%;
+}
+*/
