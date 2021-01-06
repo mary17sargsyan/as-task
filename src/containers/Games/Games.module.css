@@ -1,0 +1,55 @@
+
+
+.container {
+    margin: auto;
+    display: inline-grid;
+    grid-template-columns: 260px 420px;
+
+}
+.containerLarge {
+    
+    display: inline-grid;
+    grid-template-columns: 130px 130px;
+    grid-template-rows: auto;
+        width: auto;
+        background-color: transparent;
+    
+
+       
+}
+.containerSmall div{
+    justify-content: start; 
+}
+.containerSmall> div:hover{
+    z-index: 1001;
+    background-color: red;
+    justify-content: start; 
+}
+
+.containerSmall {
+    line-height: auto;
+    align-content: start;
+    display:inline-grid;
+    grid-template-rows: auto;
+    grid-template-columns: 100px 100px 100px 100px ;
+    width: auto;
+    background-color: transparent;
+   
+
+}
+
+/*
+.Large{
+    grid-template-rows: 150px 150px 150px;
+    display: inline;
+    width: 80%;
+    background-color: green;
+}
+.Small{
+
+    display: inline;
+    width: 80%;
+    background-color:firebrick;
+
+}
+*/

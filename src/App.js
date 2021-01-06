@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
 import {Route, Switch, withRouter, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-
-
+import './styles/semanticGrid.css'
+import * as actions from'./store/actions/index';
 import asyncComponent from "./hoc/asyncComponent/asyncComponent";
-
-
 import MainLayout from './hoc/MainLayout/MainLayout'
 
-
-
-/*
-const favorits = asyncComponent(()=>{
-    return import("./containers/Favorits/Favorits");
-});
-*/
 const Games = asyncComponent(()=>{
   return import('./containers/Games/Games');
 });
@@ -26,11 +17,23 @@ const Favourites = asyncComponent(()=>{
 
 class App extends Component {
     render() {
+        let routesArr =[];
+   
+
+        for(let key in this.props.categories){
+           let route=(
+         
+            <Route key={this.props.categories[key].nameKey} path={"/"+this.props.categories[key].nameKey} exact component={Games} />
+           )
+           routesArr.push(route)
+        }
+     
            let routes = (
-                <MainLayout >
-                    <Switch >
-                    <Route path="/" exact component={Games} />
-                    <Route path="/favourites" component ={Favourites}/>
+                <MainLayout categories={this.props.categories} >
+                <Switch>
+                    {routesArr}
+                    <Route key='/' path="/" exact component={Games} />
+                    <Route key='/favourites' path="/favourites" component ={Favourites}/>
                   </Switch>
                 </MainLayout>
             );
@@ -43,23 +46,18 @@ class App extends Component {
     );
   }
 }
-/*
-        <Switch >
-                    <Route path="/" exact component={Home} />
-                
-                </Switch>
+
 const mapStateToProps = state =>{
     return {
-        isAuthenticated: state.auth.token !==  null,
-        showSideDrawer: state.layout.showSideDrawer
+        categories: state.gamesList.categories,    
     }
 };
 const mapDispatchToProps = dispatch =>{
     return {
-        onTryAutoSignup:  () =>dispatch(actions.authCheckState())
+        fetchingGames: () => dispatch(actions.fetchingGames()),
     }
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps) (App)   );
-*/
-export default App;
+
+

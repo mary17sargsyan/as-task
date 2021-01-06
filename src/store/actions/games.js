@@ -7,7 +7,7 @@ import {gamesSearchingSuccess} from "./vipSignals";
 */
 
 
-export const signalUsersStart = () => {
+export const gamesStart = () => {
     return{
         type: actionTypes.FETCH_GAMES_START,
     };
@@ -16,14 +16,15 @@ export const signalUsersStart = () => {
 export const gamesSuccess = (games) => {
     return{
         type: actionTypes.FETCH_GAMES_SUCCESS,
-        games: games
+        games: games.games,
+        gamesCategory: games.categories
     };
 };
 
 export const gamesFail = (error) => {
     return{
         type: actionTypes.FETCH_GAMES_FAIL,
-        //error: error,
+        error: error
     };
 };
 
@@ -32,19 +33,25 @@ export const gamesFail = (error) => {
 
 
 export const fetchingGames =() => {
+
     return dispatch => {
         dispatch(gamesStart());
-        Axios({
-            method: "POST",
-            url: "../../../public/data/gamesList.json",
-        }).then(res => {
-            if (res.data) {
-                /* fetcharats xaxari cucak@ */
-                dispatch(gamesSuccess());
-            }
-
+        Axios(
+            "data/gamesList.json"
+        ).then(res => {
+                let gamesList=res.data;
+               
+              
+                if(gamesList){
+                    dispatch(gamesSuccess(gamesList));
+                }else{
+                    console.log('error')
+                }
+              
+           
         })
             .catch(err => {
+                console.log(err)
                 dispatch(gamesFail(err));
             })
 

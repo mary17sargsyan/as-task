@@ -1,0 +1,22 @@
+.Large{
+    width: 130px;
+    height:130px;
+    z-index: -1;
+}
+.Small{
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+}
+.Iconsdiv{
+    width: auto;
+    margin-left: 60px;
+}
+.Icons{
+    width: 15px;
+    height: 14px;
+    margin-top: 5px;
+    float: left;
+    position: absolute;
+    z-index: 1001;
+}

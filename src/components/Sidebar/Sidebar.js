@@ -6,6 +6,7 @@ import Input from '../Ui/Input/input'
 import styles from './Sidebar.module.css'
 class Sidebar extends Component{
  state={
+    
     config: {
         search: {
             elementType: 'input',
@@ -30,7 +31,7 @@ class Sidebar extends Component{
     let formElementsArray=[];
     for(let key in this.state.config){
         formElementsArray.push({id: key, config: this.state.config[key]});
-    
+        
     }
 
     let form = formElementsArray.map((formElement,index)=>(

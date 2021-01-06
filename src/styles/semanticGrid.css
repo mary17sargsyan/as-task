@@ -1,0 +1,21 @@
+
+.ui .padded .two .column .grid > .ui .padded .two .column .grid{
+    width: auto !important;
+
+}
+
+.ui .padded .two .column .grid .column{
+    width: auto;
+}
+
+.column{
+
+}
+
+
+.ui.grid>.column:not(.row){
+    width: auto;
+    background-color: firebrick !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}

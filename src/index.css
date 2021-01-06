@@ -2,3 +2,23 @@ body{
 
     font-family: 'Roboto', sans-serif;
 }
+.columns{
+    width: auto !important;
+}
+.ui .padded .two .column .grid > .ui .padded .two .column .grid{
+    width: auto !important;
+
+}
+
+
+
+.ui[class*="two column"].grid>.column:not(.row), .ui[class*="two column"].grid>.row>.column {
+    width: auto !important;
+    background-color: firebrick !important;
+}
+
+.ui.grid>.column:not(.row){
+    background-color: firebrick !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}

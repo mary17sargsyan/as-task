@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import { Menu } from 'semantic-ui-react'
 import styles from './navitem.module.css';
 const navitem =(props) =>{
@@ -15,9 +15,9 @@ const navitem =(props) =>{
 
   return(
    
-    <NavLink
-    to={props.to}  onClick={props.clicked} className={style} >  {props.name} </NavLink>
-   
+    <Link
+    to={props.to}  onClick={props.clicked} className={style} >  {props.name} </Link>
+    
 
  
   )
