@@ -14,7 +14,8 @@ import '../../styles/semanticMenu.css'
             this.setState({ activeItem:  window.location.pathname })
   }
   handleItemClick  (e) {
-
+    console.log(e)
+    this.props.fetchExactPath(e);
     this.setState({ activeItem: e })
   } 
   render() {
@@ -24,13 +25,12 @@ import '../../styles/semanticMenu.css'
    
 
   for(let key in this.props.categories){
-    console.log(this.props.categories[key])
      let item=(
       <Navitem
       key={this.props.categories[key].nameKey}
       name={this.props.categories[key].nameKey}
       activeItem={activeItem}
-      clicked={ (th) => this.handleItemClick(this.props.categories[key].nameKey)}
+      clicked={ () => this.handleItemClick(this.props.categories[key].nameKey)}
       to={this.props.categories[key].nameKey}
  
   />
@@ -70,7 +70,7 @@ const mapDispatchToProps = dispatch => {
   return {
  
       fetchingGames: () => dispatch(actions.fetchingGames()),
-     
+      fetchExactPath: (path)=> dispatch(actions.fetchExactPath(path)),
 
 
   };

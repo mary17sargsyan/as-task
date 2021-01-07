@@ -9,9 +9,9 @@ import {createStore, compose, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import fetchingGamesListReduser from './store/reducers/games'
 
+
 const rootReducer = combineReducers({
   gamesList: fetchingGamesListReduser 
-
 });
 
 

@@ -30,6 +30,24 @@ export const gamesFail = (error) => {
 
 
 
+export const fetchExactPathStart = () => {
+    return{
+        type: actionTypes.FETCH_EXACT_PATH_START,
+    };
+};
+export const fetchExactPathFail = (err) => {
+    return{
+        type: actionTypes.FETCH_EXACT_PATH_FAIL,
+        error: err
+    };
+};
+export const fetchExactPathSuccess = (path) => {
+    return{
+        type: actionTypes.FETCH_EXACT_PATH_SUCCESS,
+        exactPathCategorie: path
+    };
+};
+
 
 
 export const fetchingGames =() => {
@@ -58,6 +76,25 @@ export const fetchingGames =() => {
 
     }
 };
+
+export const fetchExactPath=(path)=>{
+    console.log('intoaction', path)
+    return dispatch => {
+        dispatch(fetchExactPathStart());
+            if(path){
+                dispatch(fetchExactPathSuccess(path))
+            }else{
+
+                let err='Somthing went wrong !'
+                dispatch(fetchExactPathFail(err))
+            }
+           
+       
+        }
+}
+export const favoritesAddingRemoving=()=>{
+
+}
 /*
 export const gameSearching=(value, object)=>{
     console.log('sdad', value, object)

@@ -17,7 +17,7 @@ class Games extends Component {
     state = {
         loader: false,
         games: {},
-        
+
     }
 
     componentWillMount() {
@@ -33,25 +33,27 @@ class Games extends Component {
 
     render() {
         let gamesList=this.state.games;
-    
+        
         let largeArr=[];
         let smallArr=[];
-        
-       for(let key in gamesList){
-
-            if(gamesList[key].top===true){
-                largeArr.push(gamesList[key])
-            }else if(gamesList[key].top===false){
-               smallArr.push(gamesList[key])
-            }
-           
-        }
-        
-        let large =largeArr.map((item)=>( <Largegrids key={item.id}>  <Icons clicked={()=>this.addFavorites(item.id, true)} active={true} /> <Largeimg  top={item.top} path={item.img.large}  />  </Largegrids>) )
-        let small=smallArr.map((item)=>(<Smallgrids key={item.id}>  <Icons clicked={()=>this.addFavorites(item.id, true)}active={false} />  <Smallimg  top={item.top} path={item.img.small}  />     </Smallgrids>))
-
-
-
+  
+        for(let byCategories in this.props.categories){
+           if(this.props.categories[byCategories].nameKey===this.props.path){
+              let gamesByCategories = this.props.categories[byCategories].games;
+              gamesByCategories.map((game)=>{
+                  for(let key in this.props.gamesList){
+                      if(this.props.gamesList[key].id===game.id){
+                        if(game.top){
+                            largeArr.push(<Largegrids key={game.id}>  <Icons clicked={(id)=>this.addFavorites(game.id)} active={true} /> <Largeimg   path={this.props.gamesList[key].img.large}  />  </Largegrids>)
+                        }else {
+                           smallArr.push(<Smallgrids key={game.id}>  <Icons clicked={(id)=>this.addFavorites(game.id)} active={true} /> <Smallimg   path={this.props.gamesList[key].img.small}  />  </Smallgrids>);
+                        }
+                      }
+                  }
+              })
+                
+           }
+        };
 
         let show=null;
       
@@ -69,10 +71,10 @@ class Games extends Component {
                     <div className={styles.container}>
 
                     <div  className={styles.containerLarge}>
-                       {large}
+                      {largeArr}
                         </div >
                         <div  className={styles.containerSmall}>
-                        {small}
+                        {smallArr}
                         </div >
 
                         </div>
@@ -89,7 +91,9 @@ class Games extends Component {
     const mapStateToProps = state=>{
         return{
             gamesList: state.gamesList.games,
+            categories: state.gamesList.categories,
             loader: state.gamesList.loader,
+            path: state.gamesList.exactPath
         }
     };
     
