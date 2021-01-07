@@ -49,6 +49,25 @@ export const fetchExactPathSuccess = (path) => {
 };
 
 
+export const favoritesStart = () => {
+    return{
+        type: actionTypes.FAVORITES_START,
+    };
+};
+export const favoritesFail = (err) => {
+    return{
+        type: actionTypes.FAVORITES_FAIL,
+        error: err
+    };
+};
+export const favoritesSuccess = (favorites) => {
+    console.log(favorites)
+    return{
+        type: actionTypes.FAVORITES_SUCCESS,
+        favorites: favorites
+    };
+};
+
 
 export const fetchingGames =() => {
 
@@ -58,8 +77,6 @@ export const fetchingGames =() => {
             "data/gamesList.json"
         ).then(res => {
                 let gamesList=res.data;
-               
-              
                 if(gamesList){
                     dispatch(gamesSuccess(gamesList));
                 }else{
@@ -78,7 +95,6 @@ export const fetchingGames =() => {
 };
 
 export const fetchExactPath=(path)=>{
-    console.log('intoaction', path)
     return dispatch => {
         dispatch(fetchExactPathStart());
             if(path){
@@ -87,14 +103,32 @@ export const fetchExactPath=(path)=>{
 
                 let err='Somthing went wrong !'
                 dispatch(fetchExactPathFail(err))
-            }
-           
-       
+            }     
         }
 }
-export const favoritesAddingRemoving=()=>{
+export const favoritesAddingRemoving=(id, value, favoritesObj)=>{
+ 
+    return dispatch => {
+        dispatch(favoritesStart())
+       if(id){
+        let favorites=favoritesObj;
+        favorites[id] = !value;
+        
+        dispatch(favoritesSuccess(favorites))
+       } else{
+           let err='Smth went wrong !'
+        dispatch(favoritesFail(err))
+       }
+    
+         
 
-}
+
+            }     
+        }
+
+    
+    
+
 /*
 export const gameSearching=(value, object)=>{
     console.log('sdad', value, object)

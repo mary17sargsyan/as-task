@@ -10,43 +10,43 @@ import Smallgrids from "../../components/Ui/Grids/Smallgrids/Smallgrids";
 import Largeimg from '../../components/Ui/Image/Largeimg';
 import Smallimg from '../../components/Ui/Image/Smallimg';
 import Icons from '../../components/Ui/Image/Icons'
-import { Grid } from "semantic-ui-react";
 
-//import * as actions from "../../store/actions";
+
 class Games extends Component {
     state = {
         loader: false,
-        games: {},
-
+        smt: ',',
     }
 
-    componentWillMount() {
-        this.props.fetchingGames();
-        this.setState({games: this.props.gamesList})
+    componenDidMount() {
         
-
-
+        this.props.fetchingGames();
+        
     }
-    addFavorites=(id, active)=>{
-        console.log(id, active)
+   
+    favoritesAddingRemoving=(id, value)=>{
+        if(id){
+            this.setState({smt: id});
+            this.props.favoritesAddingRemoving(id, value, this.props.favorites);
+        }
+    
     }
 
     render() {
-        let gamesList=this.state.games;
-        
         let largeArr=[];
         let smallArr=[];
-  
         for(let byCategories in this.props.categories){
            if(this.props.categories[byCategories].nameKey===this.props.path){
               let gamesByCategories = this.props.categories[byCategories].games;
               gamesByCategories.map((game)=>{
                   for(let key in this.props.gamesList){
                       if(this.props.gamesList[key].id===game.id){
+                      
                         if(game.top){
-                            largeArr.push(<Largegrids key={game.id}>  <Icons clicked={(id)=>this.addFavorites(game.id)} active={true} /> <Largeimg   path={this.props.gamesList[key].img.large}  />  </Largegrids>)
-                        }else {
-                           smallArr.push(<Smallgrids key={game.id}>  <Icons clicked={(id)=>this.addFavorites(game.id)} active={true} /> <Smallimg   path={this.props.gamesList[key].img.small}  />  </Smallgrids>);
+                            largeArr.push(<Largegrids key={game.id} >  <Icons clicked={(id)=>this.favoritesAddingRemoving(game.id, this.props.favorites[game.id])}  active={this.props.favorites[game.id]} /> <Largeimg   path={this.props.gamesList[key].img.large}  />  </Largegrids>)
+                        } 
+                        if(game.top===false){
+                           smallArr.push(<Smallgrids key={game.id}>  <Icons clicked={(id)=>this.favoritesAddingRemoving(game.id, this.props.favorites[game.id])}  active={this.props.favorites[game.id]} /> <Smallimg   path={this.props.gamesList[key].img.small}  />  </Smallgrids>);
                         }
                       }
                   }
@@ -93,17 +93,16 @@ class Games extends Component {
             gamesList: state.gamesList.games,
             categories: state.gamesList.categories,
             loader: state.gamesList.loader,
-            path: state.gamesList.exactPath
+            path: state.gamesList.exactPath,
+            favorites: state.gamesList.favorites
         }
     };
     
     const mapDispatchToProps = dispatch => {
         return {
-       
+
             fetchingGames: () => dispatch(actions.fetchingGames()),
-           
-    
-    
+            favoritesAddingRemoving: (id, value, favorites)=> dispatch(actions.favoritesAddingRemoving(id, value, favorites))
         };
     }
  

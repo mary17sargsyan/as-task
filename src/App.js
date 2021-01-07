@@ -10,8 +10,8 @@ const Games = asyncComponent(()=>{
   return import('./containers/Games/Games');
 });
 
-const Favourites = asyncComponent(()=>{
-  return import('./containers/Favourites/Favourites');
+const Favorites = asyncComponent(()=>{
+  return import('./containers/Favorites/Favorites');
 });
 
 
@@ -33,7 +33,7 @@ class App extends Component {
                 <Switch>
                     {routesArr}
                     <Route key='/' path="/" exact component={Games} />
-                    <Route key='/favourites' path="/favourites" component ={Favourites}/>
+                    <Route key='/favorites' path="/favorites" component ={Favorites}/>
                   </Switch>
                 </MainLayout>
             );

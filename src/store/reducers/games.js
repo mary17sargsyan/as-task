@@ -2,13 +2,14 @@ import * as actionTypes from "../actions/actionTypes";
 
 import {updateObject} from '../../hoc/shared/multiplyFunction'
 const initialState ={
-    favorites:[],
+    favorites:{},
     games: {},
     categories: {},
     loading: false,
     exactPath: null,
     error: null
 };
+
 const fetchingGamesStart =(state, action)=>{
     //save-ic heto chi karoghanum arah gnal mnuma estegh
     return updateObject(state, {loading: true });
@@ -39,12 +40,13 @@ const fetchingGamesSuccess =(state, action)=>{
 
 
  const favoritesSuccess = (state, action) => {
+     console.log(action.favorites)
         return updateObject(state, {favorites: action.favorites,   loading: false});
     };
     const favoritesStart = (state, action) => {
         return updateObject(state, {loading: true});
     };
-    const favoritesStart = (state, action) => {
+    const favoritesFail= (state, action) => {
         return updateObject(state, {error: action.error});
     };
 
@@ -65,10 +67,10 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_EXACT_PATH_FAIL:
             return fetchExactPathFail(state, action);
 
-        case actionTypes.FFAVORITES_SUCCESS:
+        case actionTypes.FAVORITES_SUCCESS:
             return favoritesSuccess(state, action);
         case actionTypes.FAVORITES_START:
-            return ffavoritesStart(state, action);
+            return favoritesStart(state, action);
         case actionTypes.FAVORITES_FAIL:
             return favoritesFail(state, action);
     

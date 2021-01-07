@@ -51,8 +51,8 @@ import '../../styles/semanticMenu.css'
       <Navitem
           name='Favourites'
           activeItem={activeItem}
-          clicked={() => this.handleItemClick('/favourites')}
-          to="/favourites"         
+          clicked={() => this.handleItemClick('/favorites')}
+          to="/favorites"         
 />
      </>
       
