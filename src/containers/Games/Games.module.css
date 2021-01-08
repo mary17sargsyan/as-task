@@ -3,26 +3,24 @@
 .container {
     margin: auto;
     display: inline-grid;
-    grid-template-columns: 260px 420px;
+    grid-template-columns: auto auto;
 
 }
-.containerLarge {
-    
+.containerLarge {    
     display: inline-grid;
-    grid-template-columns: 130px 130px;
+    
+    direction: rtl;
+    grid-template-columns: 130px 130px ;
     grid-template-rows: auto;
         width: auto;
         background-color: transparent;
-    
-
-       
+           
 }
 .containerSmall div{
     justify-content: start; 
 }
 .containerSmall> div:hover{
     z-index: 1001;
-    background-color: red;
     justify-content: start; 
 }
 
@@ -37,19 +35,3 @@
    
 
 }
-
-/*
-.Large{
-    grid-template-rows: 150px 150px 150px;
-    display: inline;
-    width: 80%;
-    background-color: green;
-}
-.Small{
-
-    display: inline;
-    width: 80%;
-    background-color:firebrick;
-
-}
-*/

@@ -1,0 +1,12 @@
+.containerLarge {    
+    display: inline-grid;
+    margin-left: auto;
+    margin-right: auto;
+    direction: rtl;
+    width: auto;
+    grid-template-columns: 130px 130px 130px 130px 130px ;
+    grid-template-rows: auto;
+        width: auto;
+        background-color: transparent;
+           
+}

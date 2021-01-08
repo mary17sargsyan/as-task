@@ -3,7 +3,7 @@ import Spiner from '../../components/Ui/Spiner/Spiner'
 import * as actions from '../../store/actions/index';
 import {connect} from "react-redux";
 import Titles from '../../components/Ui/Titles/Titles'
-
+import styles from './Favorites.module.css'
 
 import Largegrids from "../../components/Ui/Grids/Largegrids/Largegrids";
 
@@ -64,7 +64,9 @@ class Favourites extends Component {
                 <div>
                     <Titles  title="Test task for a frontend developer"/>
                     <Titles  title="Favourites"/>
+                    <center className={styles.containerLarge}>
                     {listFavoritesGames}
+                    </center>
                 </div>
 
             );
