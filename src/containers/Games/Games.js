@@ -16,12 +16,13 @@ class Games extends Component {
     state = {
         loader: false,
         smt: ',',
+        gamesList:{}
     }
 
-    componenDidMount() {
+    componenWillMount() {
         
         this.props.fetchingGames();
-        
+
     }
    
     favoritesAddingRemoving=(id, value)=>{
@@ -33,6 +34,7 @@ class Games extends Component {
     }
 
     render() {
+      
         let largeArr=[];
         let smallArr=[];
         for(let byCategories in this.props.categories){
@@ -41,7 +43,7 @@ class Games extends Component {
               gamesByCategories.map((game)=>{
                   for(let key in this.props.gamesList){
                       if(this.props.gamesList[key].id===game.id){
-                      
+               
                         if(game.top){
                             largeArr.push(<Largegrids key={game.id} >  <Icons clicked={(id)=>this.favoritesAddingRemoving(game.id, this.props.favorites[game.id])}  active={this.props.favorites[game.id]} /> <Largeimg   path={this.props.gamesList[key].img.large}  />  </Largegrids>)
                         } 
@@ -56,7 +58,10 @@ class Games extends Component {
         };
 
         let show=null;
-      
+        let err=null;
+        if(this.props.error){
+            err=this.props.err
+        }
         if(this.props.loader){
             show=<Spiner/>
         }else{
@@ -67,6 +72,7 @@ class Games extends Component {
                 <div>
                     <Titles  title="Test task for a frontend developer"/>
                     {show}
+                    {err}
             <center>
                     <div className={styles.container}>
 
@@ -94,6 +100,7 @@ class Games extends Component {
             categories: state.gamesList.categories,
             loader: state.gamesList.loader,
             path: state.gamesList.exactPath,
+            err: state.gamesList.error,
             favorites: state.gamesList.favorites
         }
     };

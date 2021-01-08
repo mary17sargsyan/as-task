@@ -1,7 +1,8 @@
 import React, {Component}from 'react';
-
+import * as actions from '../../store/actions/index';
 import NavMenu from "../NavMenu/NavMenu";
 import {changedValueHandler} from '../../hoc/shared/multiplyFunction'
+import {connect} from "react-redux";
 import Input from '../Ui/Input/input'
 import styles from './Sidebar.module.css'
 class Sidebar extends Component{
@@ -22,9 +23,10 @@ class Sidebar extends Component{
  }
 
  changedElements=(event, id)=>{
-    
+
     const updateControl = changedValueHandler(this.state.config, id, event)
     this.setState({config: updateControl});
+    this.props.searchByTitle(event.target.value, this.props.gamesFullList)
 }
  render(){
 
@@ -63,4 +65,21 @@ class Sidebar extends Component{
  }
 
 };
-export  default Sidebar;
+
+
+const mapStateToProps = state=>{
+    return{
+        gamesFullList: state.gamesList.gamesFullList,
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+
+        fetchingGames: () => dispatch(actions.fetchingGames()),
+        searchByTitle: (value, gamesFullList)=> dispatch(actions.searchBy(value,gamesFullList))
+    };
+}
+
+export default  connect(mapStateToProps,    mapDispatchToProps) (Sidebar);
+

@@ -7,7 +7,7 @@ export const updateObject = (oldObject, updatedValues)=>{
     };
 };
 export  const changedValueHandler = (controls, controlName, event)=>{
-    console.log('event',event)
+
     let updateControl = updateObject(controls, {
         ...controls,
         [controlName]: updateObject(controls[controlName], {
@@ -20,14 +20,35 @@ export  const changedValueHandler = (controls, controlName, event)=>{
 }
 
 
-export const inputSearchHandler=(controls, controlName, event,)=>{
-    const updateControl = updateObject(controls, {
-        ...controls,
-        [controlName]: updateObject(controls[controlName], {
-            value: event.target.value,
-           /* valid: checkValidity(event.target.value, controls[controlName].validation),*/
-            touched: true
-        })
-    });
-    return updateControl;
-}
+
+
+export const searching = (value, object) =>{
+
+    let newObj=[];
+    
+    const byLength = value.length;
+    if(byLength===0){
+        newObj=object
+    }else{
+        for(let key in object){
+            const searchByTitle=object[key].name; 
+            const objName=searchByTitle.toLowerCase();
+            const val=value.toLowerCase();
+                let filter = objName.includes(val)
+                if(filter){
+                    newObj.push(object[key])
+                }
+                
+        }
+          
+
+              
+                
+        
+           
+        
+      
+    }
+    
+    return newObj;
+};

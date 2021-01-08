@@ -7,9 +7,11 @@ const initialState ={
     categories: {},
     loading: false,
     exactPath: null,
-    error: null
+    error: null,
+    gamesFullList:{}
 };
 
+//gamesList
 const fetchingGamesStart =(state, action)=>{
     //save-ic heto chi karoghanum arah gnal mnuma estegh
     return updateObject(state, {loading: true });
@@ -20,7 +22,7 @@ const fetchingGamesFail =(state, action)=>{
 };
 
 const fetchingGamesSuccess =(state, action)=>{
-    return updateObject(state, {games: action.games,  categories: action.gamesCategory,   loading: false});
+    return updateObject(state, {games: action.games, gamesFullList: action.games,  categories: action.gamesCategory,   loading: false});
 };
 
 
@@ -39,6 +41,7 @@ const fetchingGamesSuccess =(state, action)=>{
 };
 
 
+//favorites
  const favoritesSuccess = (state, action) => {
      console.log(action.favorites)
         return updateObject(state, {favorites: action.favorites,   loading: false});
@@ -49,6 +52,17 @@ const fetchingGamesSuccess =(state, action)=>{
     const favoritesFail= (state, action) => {
         return updateObject(state, {error: action.error});
     };
+
+    //search
+const searchByTitleStart = (state, action) => {
+    return updateObject(state, {loading: true });
+};
+ const searchByTitleFail = (state, action) => {
+        return updateObject(state, {error: action.error,loading: false });
+};
+ const searchByTitleSuccess = (state, action) => {
+        return updateObject(state, {games: action.games,   loading: false});
+};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -73,7 +87,13 @@ const reducer = (state = initialState, action) => {
             return favoritesStart(state, action);
         case actionTypes.FAVORITES_FAIL:
             return favoritesFail(state, action);
-    
+        
+        case actionTypes.SEARCH_BY_TITLE_SUCCESS:
+            return searchByTitleSuccess(state, action);
+        case actionTypes.SEARCH_BY_TITLE_START:
+            return searchByTitleStart(state, action);
+        case actionTypes.SEARCH_BY_TITLE_FAIL:
+            return searchByTitleFail(state, action);
         default:
             return state;
 

@@ -1,10 +1,9 @@
 import * as actionTypes from "./actionTypes";
 
 import Axios from "axios";
-/*
-import {searching} from "../../shared/utility";
-import {gamesSearchingSuccess} from "./vipSignals";
-*/
+
+import {searching} from "../../hoc/shared/multiplyFunction";
+
 
 
 export const gamesStart = () => {
@@ -61,10 +60,28 @@ export const favoritesFail = (err) => {
     };
 };
 export const favoritesSuccess = (favorites) => {
-    console.log(favorites)
+
     return{
         type: actionTypes.FAVORITES_SUCCESS,
         favorites: favorites
+    };
+};
+export const searchByTitleStart = () => {
+    return{
+        type: actionTypes.SEARCH_BY_TITLE_START,
+    };
+};
+export const searchByTitleFail = (err) => {
+    return{
+        type: actionTypes.SEARCH_BY_TITLE_FAIL,
+        error: err
+    };
+};
+export const searchByTitleSuccess = (searchGames) => {
+
+    return{
+        type: actionTypes.SEARCH_BY_TITLE_SUCCESS,
+        games: searchGames
     };
 };
 
@@ -112,6 +129,7 @@ export const favoritesAddingRemoving=(id, value, favoritesObj)=>{
         dispatch(favoritesStart())
        if(id){
         let favorites=favoritesObj;
+
         favorites[id] = !value;
         
         dispatch(favoritesSuccess(favorites))
@@ -124,17 +142,23 @@ export const favoritesAddingRemoving=(id, value, favoritesObj)=>{
 
 
             }     
-        }
+}
 
     
     
 
-/*
-export const gameSearching=(value, object)=>{
-    console.log('sdad', value, object)
+
+export const searchBy=(value, object)=>{
     return dispatch => {
-        const newObj=searching(value, object);
-        dispatch(signalUsersSearchingSuccess(newObj));
+        dispatch(searchByTitleStart());
+        const filtered=searching(value, object);
+        if(filtered){
+            
+            dispatch(searchByTitleSuccess(filtered));  
+        }
+            let err="Nothing to show"
+            dispatch(searchByTitleFail(err));
+        
+       
     }
 };
-*/

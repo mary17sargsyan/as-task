@@ -46,13 +46,13 @@ class Favourites extends Component {
       
 
             for(let key in this.props.favorites){
-     
+             
                 if(this.props.favorites[key]){
                  
-                    for(let gameList in this.props.gamesList){
-                   
-                        if(this.props.gamesList[gameList].id == key){
-                            listFavoritesGames.push(<Largegrids key={key}>  <Icons clicked={(id)=>this.favoritesAddingRemoving(key, this.props.favorites[key])}  active={this.props.favorites[key]}/> <Largeimg path={this.props.gamesList[key].img.large} />  </Largegrids>);
+                    for(let gamesList in this.props.gamesList){
+                    
+                        if(this.props.gamesList[gamesList].id == key){
+                            listFavoritesGames.push(<Largegrids key={key}>  <Icons clicked={(id)=>this.favoritesAddingRemoving(key, this.props.favorites[key])}  active={this.props.favorites[key]}/> <Largeimg path={this.props.gamesList[gamesList].img.large} />  </Largegrids>);
                         }
                     }
                     }
