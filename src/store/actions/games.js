@@ -12,11 +12,12 @@ export const gamesStart = () => {
     };
 };
 
-export const gamesSuccess = (games) => {
+export const gamesSuccess = (games, favoritesList) => {
     return{
         type: actionTypes.FETCH_GAMES_SUCCESS,
         games: games.games,
-        gamesCategory: games.categories
+        gamesCategory: games.categories,
+        favoritesList: favoritesList
     };
 };
 
@@ -95,7 +96,9 @@ export const fetchingGames =() => {
         ).then(res => {
                 let gamesList=res.data;
                 if(gamesList){
-                    dispatch(gamesSuccess(gamesList));
+                    let favoritesFromLocalStorige = localStorage.getItem('favorites');
+                    dispatch(gamesSuccess(gamesList, JSON.parse(favoritesFromLocalStorige)));
+              
                 }else{
                     console.log('error')
                 }
@@ -131,7 +134,7 @@ export const favoritesAddingRemoving=(id, value, favoritesObj)=>{
         let favorites=favoritesObj;
 
         favorites[id] = !value;
-        
+        localStorage.setItem('favorites',JSON.stringify(favorites));
         dispatch(favoritesSuccess(favorites))
        } else{
            let err='Smth went wrong !'

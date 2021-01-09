@@ -8,7 +8,8 @@ const initialState ={
     loading: false,
     exactPath: null,
     error: null,
-    gamesFullList:{}
+    gamesFullList:{},
+    favorites: {}
 };
 
 //gamesList
@@ -22,7 +23,7 @@ const fetchingGamesFail =(state, action)=>{
 };
 
 const fetchingGamesSuccess =(state, action)=>{
-    return updateObject(state, {games: action.games, gamesFullList: action.games,  categories: action.gamesCategory,   loading: false});
+    return updateObject(state, {games: action.games, gamesFullList: action.games,  favorites: action.favoritesList,  categories: action.gamesCategory,   loading: false});
 };
 
 
