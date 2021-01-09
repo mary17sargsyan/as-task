@@ -42,13 +42,19 @@ class Games extends Component {
               let gamesByCategories = this.props.categories[byCategories].games;
               gamesByCategories.map((game)=>{
                   for(let key in this.props.gamesList){
+                    
                       if(this.props.gamesList[key].id===game.id){
-               
+                          let icn=  <Icons clicked={(id)=>this.favoritesAddingRemoving(game.id, this.props.favorites[game.id])} top={game.top}  active={this.props.favorites[game.id]} />
+                        
                         if(game.top){
-                            largeArr.push(<Largegrids key={game.id} >  <Icons clicked={(id)=>this.favoritesAddingRemoving(game.id, this.props.favorites[game.id])}  active={this.props.favorites[game.id]} /> <Largeimg   path={this.props.gamesList[key].img.large}  />  </Largegrids>)
+                            largeArr.push(<Largegrids key={game.id} > 
+                                 {icn}
+                                 <Largeimg   path={this.props.gamesList[key].img.large}  />   </Largegrids>)
                         } 
-                        if(game.top===false){
-                           smallArr.push(<Smallgrids key={game.id}>  <Icons clicked={(id)=>this.favoritesAddingRemoving(game.id, this.props.favorites[game.id])}  active={this.props.favorites[game.id]} /> <Smallimg   path={this.props.gamesList[key].img.small}  />  </Smallgrids>);
+                        if(!game.top){
+                           smallArr.push(<Smallgrids key={game.id}>  
+                                {icn}
+                            <Smallimg   path={this.props.gamesList[key].img.small}  />  </Smallgrids>);
                         }
                       }
                   }
@@ -71,8 +77,6 @@ class Games extends Component {
             return (
                 <div>
                     <Titles  title="Test task for a frontend developer"/>
-                    {show}
-                    {err}
             <center>
                     <div className={styles.container}>
 
@@ -87,6 +91,7 @@ class Games extends Component {
                     </center>
     
                     {show}
+                    {err}
              
 </div>
             );

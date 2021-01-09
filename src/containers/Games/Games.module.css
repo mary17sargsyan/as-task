@@ -1,9 +1,11 @@
 
 
 .container {
-    margin: auto;
+    
+
     display: inline-grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 260px 400px;
+
 
 }
 .containerLarge {    
@@ -11,18 +13,13 @@
     
     direction: rtl;
     grid-template-columns: 130px 130px ;
-    grid-template-rows: auto;
-        width: auto;
-        background-color: transparent;
+    background-color: transparent;
            
 }
 .containerSmall div{
     justify-content: start; 
 }
-.containerSmall> div:hover{
-    z-index: 1001;
-    justify-content: start; 
-}
+
 
 .containerSmall {
     line-height: auto;

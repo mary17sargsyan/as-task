@@ -6,7 +6,7 @@ const Smallimg = (props)=>{
       let err='assets/placeholder/small/placeholder.jpg';
      return(<Img className={styles.Small}
       src={[path, err]}
-      />) 
+      />)   
 }
 
  
