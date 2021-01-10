@@ -24,7 +24,8 @@ class App extends Component {
            let route=(
          
             <Route key={this.props.categories[key].nameKey} path={"/"+this.props.categories[key].nameKey} exact component={Games} />
-           )
+            
+            )
            routesArr.push(route)
         }
      

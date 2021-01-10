@@ -13,7 +13,7 @@ class MainLayout extends Component{
             return (  <Auxik>
                 <header className={styles.Header}>
                 <Sidebar  />
-                  </header>  
+                        </header>  
                 
                   
                   <main className={styles.Main}>

@@ -2,7 +2,6 @@
 
 .container {
     
-    background-color: aliceblue;
     display: inline-grid;
     grid-template-columns: auto auto;
 

@@ -14,7 +14,6 @@ import '../../styles/semanticMenu.css'
             this.setState({ activeItem:  window.location.pathname })
   }
   handleItemClick  (e) {
-    console.log(e)
     this.props.fetchExactPath(e);
     this.setState({ activeItem: e })
   } 
@@ -47,6 +46,12 @@ import '../../styles/semanticMenu.css'
     
     return (
      <>
+      <Navitem
+          name='Home'
+          activeItem={activeItem}
+          clicked={() => this.handleItemClick('/')}
+          to="/"         
+/>
      {categories}
       <Navitem
           name='Favourites'
