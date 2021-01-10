@@ -1,12 +1,55 @@
-.containerLarge {    
+.containerLarge {
+    margin: auto;    
     display: inline-grid;
-    margin-left: auto;
-    margin-right: auto;
-    direction: rtl;
-    width: auto;
+
+
+
     grid-template-columns: 130px 130px 130px 130px 130px ;
     grid-template-rows: auto;
         width: auto;
         background-color: transparent;
            
+}
+
+@media screen  and (max-width: 1050px){
+
+    .containerLarge {
+        grid-template-columns: 120px 120px 120px 120px 120px ;         
+    }
+}
+
+@media screen  and (max-width: 900px){
+  
+ 
+
+    .containerLarge {
+        grid-template-columns: 110px 110px 110px 110px 110px ;         
+    }
+  
+}
+
+@media screen  and (max-width:  800px){
+  
+ 
+
+    .containerLarge {
+        grid-template-columns: 110px 110px 110px 110px  ;         
+    }
+  
+}
+@media screen  and (max-width:  600px){
+  
+
+    .containerLarge {
+        grid-template-columns: 110px 110px 110px   ;         
+    }
+  
+}
+@media screen  and (max-width:  510px){
+  
+
+    .containerLarge {
+        grid-template-columns: 110px 110px    ;         
+    }
+  
 }

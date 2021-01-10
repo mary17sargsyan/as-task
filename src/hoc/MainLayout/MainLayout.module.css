@@ -8,3 +8,15 @@
     padding-left: 30px;
     margin-left: 200px;
 }
+
+@media (max-width: 800px){
+    .Main{
+        padding-top: 1%;
+        padding-left: 30px;
+        margin-left: 120px;
+    }
+}
+
+@media (max-width: 550px){
+   
+}

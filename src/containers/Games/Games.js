@@ -34,11 +34,13 @@ class Games extends Component {
     }
 
     render() {
-      
+        let title=  <Titles  title="Please Choose Categories"/>
         let largeArr=[];
         let smallArr=[];
         for(let byCategories in this.props.categories){
+         
            if(this.props.categories[byCategories].nameKey===this.props.path){
+            title= <Titles  title={this.props.categories[byCategories].nameKey}/>
               let gamesByCategories = this.props.categories[byCategories].games;
               gamesByCategories.map((game)=>{
                   for(let key in this.props.gamesList){
@@ -76,10 +78,12 @@ class Games extends Component {
 
             return (
                 <div>
-                    <Titles  title="Test task for a frontend developer"/>
+                  
             <center>
-                    <div className={styles.container}>
-
+          {title}
+      
+ <div className={styles.container} >
+  
                     <div  className={styles.containerLarge}>
                       {largeArr}
                         </div >
@@ -88,6 +92,7 @@ class Games extends Component {
                         </div >
 
                         </div>
+                   
                     </center>
     
                     {show}

@@ -42,8 +42,7 @@ class Favourites extends Component {
                 show=null;
             }
             let listFavoritesGames=[];
-            let test=this.props.favorites;
-      
+  
 
             for(let key in this.props.favorites){
              
@@ -62,10 +61,13 @@ class Favourites extends Component {
             
             return (
                 <div>
-                    <Titles  title="Test task for a frontend developer"/>
-                    <Titles  title="Favourites"/>
-                    <center className={styles.containerLarge}>
-                    {listFavoritesGames}
+                  
+                  <Titles  title="Favourites"/>
+                    <center>
+                   <div className={styles.containerLarge}> 
+                   {listFavoritesGames}
+                       </div>
+           
                     </center>
                 </div>
 
